@@ -21,7 +21,7 @@ export default function AllCats () {
         return(
           <Card key={cat.id}>
             <p> { cat.name } </p>
-            <p>{ cat.origin }</p>
+            <p>Origin: { cat.origin }</p>
             <p>{ cat.description }</p>
             <p>{ cat.temperament }</p>
             <img src={ !cat.image ? notFountCat : cat.image.url } />
