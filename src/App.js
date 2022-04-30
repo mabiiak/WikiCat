@@ -1,7 +1,10 @@
+import React from 'react';
+import ShowMe from './Pages/ShowMe';
+
 function App() {
   return (
     <div>
-      <p>A</p>
+      <ShowMe />
     </div>
   );
 }
