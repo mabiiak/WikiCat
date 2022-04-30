@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import allCats from '../Services/FecthCats';
+import React, { useContext, useEffect } from 'react';
+import { Context } from '../Context/Provider';
 import { Card } from '../Style/Card';
-import notFountCat from '../images/notFound.jpg';
+import notFound from '../images/notFound.jpg';
 
 export default function AllCats () {
-  const [totalCats, setTotalCats] = useState([]);
+  const { totalCats, returnCat } = useContext(Context);
 
-  useEffect(() => {
-    const returnCat = async () => {
-      const cats = await allCats()
-      setTotalCats(cats);
-    }
-
-    returnCat();
-  }, []);
+  useEffect(() => { returnCat() }, []);
 
   return (
     <div>
@@ -24,7 +17,7 @@ export default function AllCats () {
             <p>Origin: { cat.origin }</p>
             <p>{ cat.description }</p>
             <p>{ cat.temperament }</p>
-            <img src={ !cat.image ? notFountCat : cat.image.url } />
+            <img src={ !cat.image ? notFound : cat.image.url } />
           </Card>
         )
       })
