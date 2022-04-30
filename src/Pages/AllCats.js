@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import allCats from '../Services/FecthCats';
 import { Card } from '../Style/Card';
+import notFountCat from '../images/notFound.jpg';
 
 export default function AllCats () {
   const [totalCats, setTotalCats] = useState([]);
@@ -12,20 +13,18 @@ export default function AllCats () {
     }
 
     returnCat();
-  }, [])
+  }, []);
 
   return (
     <div>
-      { console.log(totalCats)}
-    { 
-      totalCats.map((cat) => {
+    { totalCats.map((cat) => {
         return(
           <Card key={cat.id}>
             <p> { cat.name } </p>
             <p>{ cat.origin }</p>
             <p>{ cat.description }</p>
             <p>{ cat.temperament }</p>
-            {/* <p>{ cat.image.url }</p> */}
+            <img src={ !cat.image ? notFountCat : cat.image.url } />
           </Card>
         )
       })
