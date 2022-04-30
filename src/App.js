@@ -1,10 +1,10 @@
 import React from 'react';
-import ShowMe from './Pages/ShowMe';
+import AllCats from './Pages/AllCats';
 
 function App() {
   return (
     <div>
-      <ShowMe />
+      <AllCats />
     </div>
   );
 }
