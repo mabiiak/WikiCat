@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import test from '../Services/FecthCats';
+import allCats from '../Services/FecthCats';
+import { Card } from '../Style/Card';
 
 export default function AllCats () {
-  const [totalCats, setTotalCats] = useState();
+  const [totalCats, setTotalCats] = useState([]);
 
   useEffect(() => {
     const returnCat = async () => {
-      const cats = await test()
-      setTotalCats(cats) 
+      const cats = await allCats()
+      setTotalCats(cats);
     }
 
     returnCat();
@@ -15,11 +16,20 @@ export default function AllCats () {
 
   return (
     <div>
-      <p>Raça</p>
-      <p>Origem</p>
-      <p>Temperamento</p>
-      <p>img</p>
       { console.log(totalCats)}
+    { 
+      totalCats.map((cat) => {
+        return(
+          <Card key={cat.id}>
+            <p> { cat.name } </p>
+            <p>{ cat.origin }</p>
+            <p>{ cat.description }</p>
+            <p>{ cat.temperament }</p>
+            {/* <p>{ cat.image.url }</p> */}
+          </Card>
+        )
+      })
+    }
     </div>
   );
 }
