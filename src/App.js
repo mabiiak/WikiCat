@@ -1,12 +1,12 @@
 import React from 'react';
-// import AllCats from './Pages/AllCats';
-import Initial from './Pages/Initial';
+import AllCats from './Pages/AllCats';
+// import Initial from './Pages/Initial';
 
 function App() {
   return (
     <div>
-      <Initial />
-      {/* <AllCats /> */}
+      {/* <Initial /> */}
+      <AllCats />
     </div>
   );
 }

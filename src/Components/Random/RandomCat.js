@@ -8,7 +8,8 @@ export default function RandomCat () {
 
   const [number, setNumber] = useState(0);
 
-  // PROBLEMAS NO RENDERIZAR ao recarregar a pagina
+  // - quando chamo o elemento especifico no html totalCats não trás nada nem gera numero
+  // - pagina quebra
 
   useEffect(() => {
     const random = Math.floor(Math.random() * 68 + 1);
