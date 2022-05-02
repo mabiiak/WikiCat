@@ -6,7 +6,6 @@ export default function Initial () {
   return (
     <div>
       <Header />
-      <button>Random</button>
       <RandomCat />
     </div>
   )

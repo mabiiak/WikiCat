@@ -1,11 +1,14 @@
 import React from 'react';
+import { HeaderStyle } from '../../Style/Header';
 
 export default function Header () {
   return (
-    <header>
+    <HeaderStyle>
       <h2>WikiCat</h2>
-      <p>See all cats</p>
-      <p>What is my cats breed?</p>
-    </header>
+      <div>
+        <p>See all cats</p>
+        <p>What is my cats breed?</p>
+      </div>
+    </HeaderStyle>
   )
 }

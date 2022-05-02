@@ -9,6 +9,7 @@ export default function AllCats () {
   useEffect(() => { returnCat() }, []);
 
   return (
+    // card resumido imagem e nome da raça ---> pop up completo
     <div>
     { totalCats.map((cat) => {
         return(
