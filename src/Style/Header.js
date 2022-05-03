@@ -6,11 +6,22 @@ export const HeaderStyle = styled.header`
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  padding: 5px;
+  padding: 15px;
+  
+  h2 {
+    margin-left:25px;
+  }
 
-  div {
-    p {
+  nav {
+    display: flex;
+    flex-direction: row;
+    margin-right:25px;
+
+    a, p {
+      color: black;
       margin-bottom: 2px;
+      margin-left: 40px;
+      text-decoration:none;
     };
 
     text-align: right;
