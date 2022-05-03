@@ -6,12 +6,4 @@ const fetchAllCats = async () => {
   return result;
 }
 
-export const imageCats = async (id) => {
-  const URL_IMAGE = `https://api.thecatapi.com/v1/images/search?breed_id=${id}`
-
-  const fetchCat = await fetch(URL_IMAGE);
-  const result = fetchCat.json();
-  return result;
-}
-
 export default fetchAllCats;

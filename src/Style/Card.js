@@ -11,7 +11,6 @@ export const Card = styled.div`
 
   div {
     align-items: center;
-    /* background-color: red; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;

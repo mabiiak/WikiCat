@@ -1,55 +1,48 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Context } from '../../Context/Provider';
+import React, { useEffect, useState } from 'react';
 import { Card } from '../../Style/Card';
-// import notFound from '../../images/notFound.jpg';
+import notFound from '../../images/notFound.jpg';
+import random from '../../Services/FetchRandom';
 
 export default function RandomCat () {
-  const { totalCats, returnCat } = useContext(Context);
-
+  const [oneCat, setOneCat] = useState({});
   const [number, setNumber] = useState(0);
 
-  // - quando chamo o elemento especifico no html totalCats não trás nada nem gera numero
-  // - pagina quebra
+  const gerateNewCat = async () => {
+    const one = await random(number);
+    setOneCat(one)
+  }
 
   useEffect(() => {
-    const random = Math.floor(Math.random() * 68 + 1);
-    setNumber(random);
-    async () => {
-      await returnCat();
-    }
-    // console.log(totalCats);
+    const gera = Math.floor(Math.random() * 68 + 1);
+    setNumber(gera);
+
+    gerateNewCat();
   }, []);
 
   const renderRamdom = () => {
     const random = Math.floor(Math.random() * 68 + 1);
     setNumber(random);
+
+    gerateNewCat();
   };
 
-  const result = totalCats[number];
+  const { name, origin, description, temperament, image } = oneCat;
   
   return (
     <div>
-      {/* { console.log('n', number) } */}
-      { console.log(totalCats) }
-      { console.log(result)}
-
-      <p>{ number }</p>
-      {/* <p> { result.name } </p> */}
-
-     <Card>
-        {/* <p> { totalCats[number].name } </p>
-        <p>Origin: { totalCats[number].origin }</p>
-        <p>{ totalCats[number].description }</p>
-        <p>{ totalCats[number].temperament }</p>
-        <img src={ !totalCats[number].image ? notFound : totalCats[number].image.url } /> */}
+      <Card>
+        <div>
+          <h3> { name } </h3>
+          <p>Origin: { origin }</p>
+        </div>
+        <p>{ description }</p>
+        <p>{ temperament }</p>
+        <img src={ !image ? notFound : image.url } />
       </Card>
-      {/* // problema para pegar o valor especifico */}
 
-    <button
-      onClick={ () => renderRamdom() }
-    >
-      Random
-    </button>
+      <button onClick={ () => renderRamdom() }>
+        Random
+      </button>
 
     </div>
   )
