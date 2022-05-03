@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom';
 export default function Header () {
   return (
     <HeaderStyle>
-      <h2>WikiCat</h2>
+      <Link className='title' to='/'>WikiCat</Link>
       <nav>
-        <Link to='/'>Home</Link>
         <Link to='/allcats'>See All</Link>
-        <p>Test breed</p>
+        <p>Test Breed</p>
       </nav>
     </HeaderStyle>
   )
