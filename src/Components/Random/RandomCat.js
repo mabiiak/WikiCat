@@ -5,42 +5,29 @@ import random from '../../Services/FetchRandom';
 
 export default function RandomCat () {
   const [oneCat, setOneCat] = useState({});
-  const [number, setNumber] = useState(0);
 
   const gerateNewCat = async () => {
-    const one = await random(number);
+    const one = await random();
     setOneCat(one)
   }
 
   useEffect(() => {
-    const gera = Math.floor(Math.random() * 68 + 1);
-    setNumber(gera);
-
     gerateNewCat();
   }, []);
-
-  const renderRamdom = () => {
-    const random = Math.floor(Math.random() * 68 + 1);
-    setNumber(random);
-
-    gerateNewCat();
-  };
-
-  const { name, origin, description, temperament, image } = oneCat;
   
   return (
     <div>
       <Card>
         <div>
-          <h3> { name } </h3>
-          <p>Origin: { origin }</p>
+          <h3> { oneCat.name } </h3>
+          <p>Origin: { oneCat.origin }</p>
         </div>
-        <p>{ description }</p>
-        <p>{ temperament }</p>
-        <img src={ !image ? notFound : image.url } />
+        <p>{ oneCat.description }</p>
+        <p>{ oneCat.temperament }</p>
+        <img src={ !oneCat.image ? notFound : oneCat.image.url } />
       </Card>
 
-      <button onClick={ () => renderRamdom() }>
+      <button onClick={ () => gerateNewCat() }>
         Random
       </button>
 
